@@ -17,7 +17,6 @@ async function updateOrCreateUser(email: any, otp: number) {
     const existingUser = await prisma.emailOtp.findUnique({
       where: { email },
     });
-    console.log("existingUser", existingUser);
 
     if (existingUser) {
       await prisma.emailOtp.update({
