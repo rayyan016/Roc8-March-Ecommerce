@@ -15,6 +15,23 @@ model User {
   name      String
   email     String   @unique
   password  String
+  categories    UserCategory[]
+}
+
+model Category {
+  id     Int      @id @default(autoincrement())
+  name   String   @unique
+  user  UserCategory[]
+}
+
+model UserCategory {
+  user  User   @relation(fields: [userId], references: [id])
+  userId    Int
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId    Int
+  createdAt DateTime @default(now())
+
+  @@id([userId, categoryId])
 }
 
 model EmailOtp { 
