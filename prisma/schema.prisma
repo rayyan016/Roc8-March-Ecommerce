@@ -16,3 +16,10 @@ model User {
   email     String   @unique
   password  String
 }
+
+model EmailOtp { 
+  id Int @id @default(autoincrement()) 
+  email String @unique 
+  otp String 
+  createdAt DateTime @default(now()) 
+}
