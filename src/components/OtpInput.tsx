@@ -18,7 +18,6 @@ const OtpInput: React.FC<OtpInputProps> = ({ name, email, pass }) => {
   const hasFetchedData = useRef(false);
   const router = useRouter();
 
-
   const fetchData = async () => {
     try {
       const response = await fetch("/api/auth/signup/otp/route", {
@@ -138,6 +137,7 @@ const OtpInput: React.FC<OtpInputProps> = ({ name, email, pass }) => {
               className="h-14 w-10 rounded border-2 border-gray-300 bg-white"
             >
               <input
+              // @ts-ignore
                 ref={(el) => (inpRefs.current[index] = el)}
                 onFocus={() => setActiveInput(index)}
                 onBlur={() => setActiveInput(-1)}
@@ -156,7 +156,6 @@ const OtpInput: React.FC<OtpInputProps> = ({ name, email, pass }) => {
         <button
           type="submit"
           className="w-full rounded bg-black p-3 text-lg uppercase tracking-wider text-white hover:bg-gray-700"
-          // onClick={submitOtp}
         >
           Verify
         </button>
