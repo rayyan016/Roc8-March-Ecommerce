@@ -137,7 +137,7 @@ const OtpInput: React.FC<OtpInputProps> = ({ name, email, pass }) => {
               className="h-14 w-10 rounded border-2 border-gray-300 bg-white"
             >
               <input
-              // @ts-ignore
+              // @ts-expect-error
                 ref={(el) => (inpRefs.current[index] = el)}
                 onFocus={() => setActiveInput(index)}
                 onBlur={() => setActiveInput(-1)}
